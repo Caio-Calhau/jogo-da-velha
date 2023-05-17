@@ -27,20 +27,38 @@ export const Square = styled.div`
   width: 150px;
   height: 150px;
 
+  font-size: 30px;
+
   align-items: center;
   justify-content: center;
 
   border: 1px solid black;
 `;
 
+export const Header = styled.div`
+  height: 200px;
+`;
+
 export const Title = styled.h1`
   display: flex;
+  justify-content: center;
+  font-size: 50px;
+`;
 
-  font-size: 32px;
+export const Players = styled.div`
+  display: flex;
+
+  padding-top: 50px;
+
+  width: 1000px;
+
+  justify-content: space-around;
 `;
 
 export const PlayerX = styled.p`
-  display: flex;
+  font-size: 25px;
+`;
 
-  font-size: 20px;
+export const PlayerO = styled.p`
+  font-size: 25px;
 `;

@@ -1,28 +1,40 @@
 import React from "react";
-import { Screen, Table, Square, Title, PlayerX } from "./Components/TableStyles";
+import {
+  Screen,
+  Table,
+  Square,
+  Header,
+  Title,
+  PlayerX,
+  PlayerO,
+  Players,
+} from "./Components/TableStyles";
 
 function App() {
   return (
     <>
       <Screen>
-        <Title>Jogo da Velha</Title>
-        <PlayerX>Jogador X</PlayerX>
-        <div>Jogador O</div>
-        <div>Placar</div>
+        <Header>
+          <Title>Jogo da Velha</Title>
+          <Players>
+            <PlayerX>Jogador X</PlayerX>
+            <PlayerO>Jogador O</PlayerO>
+          </Players>
+        </Header>
         <Table>
-          <Square>1</Square>
-          <Square>2</Square>
-          <Square>3</Square>
+          <Square>X</Square>
+          <Square>O</Square>
+          <Square>X</Square>
         </Table>
         <Table>
-          <Square>4</Square>
-          <Square>5</Square>
-          <Square>6</Square>
+          <Square>O</Square>
+          <Square>X</Square>
+          <Square>O</Square>
         </Table>
         <Table>
-          <Square>7</Square>
-          <Square>8</Square>
-          <Square>9</Square>
+          <Square>X</Square>
+          <Square>O</Square>
+          <Square>X</Square>
         </Table>
       </Screen>
     </>
