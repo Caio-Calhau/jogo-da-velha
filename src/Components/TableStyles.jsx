@@ -27,7 +27,7 @@ export const Square = styled.div`
   width: 150px;
   height: 150px;
 
-  font-size: 30px;
+  font-size: 40px;
 
   align-items: center;
   justify-content: center;
