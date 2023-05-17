@@ -8,6 +8,8 @@ import {
   PlayerX,
   PlayerO,
   Players,
+  Counter,
+  Score,
 } from "./Components/TableStyles";
 
 function App() {
@@ -20,6 +22,10 @@ function App() {
             <PlayerX>Jogador X</PlayerX>
             <PlayerO>Jogador O</PlayerO>
           </Players>
+          <Score>
+            <Counter>0</Counter>
+            <Counter>1</Counter>
+          </Score>
         </Header>
         <Table>
           <Square>X</Square>

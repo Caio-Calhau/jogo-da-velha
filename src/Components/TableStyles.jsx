@@ -50,15 +50,36 @@ export const Players = styled.div`
 
   padding-top: 50px;
 
-  width: 1000px;
+  width: 100vw;
 
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 export const PlayerX = styled.p`
   font-size: 25px;
+  padding-left: 150px;
 `;
 
 export const PlayerO = styled.p`
   font-size: 25px;
+  padding-right: 150px;
+`;
+
+export const Score = styled.div`
+  display: flex;
+
+  padding-top: 200px;
+
+  width: 100vw;
+
+  justify-content: space-between;
+`;
+
+export const Counter = styled.p`
+  display: flex;
+  font-size: 150px;
+
+  justify-content: center;
+
+  padding: 0px 150px 0px 150px;
 `;
