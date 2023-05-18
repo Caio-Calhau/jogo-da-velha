@@ -12,9 +12,17 @@ import {
   Score,
 } from "./Components/TableStyles";
 
-function App() {
-  const [value, setValue] = useState("");
+function Quadrado() {
+  const [value, setValue] = useState(null);
 
+  function clickX() {
+    setValue("X");
+  }
+
+  return <Square onClick={clickX}>{value}</Square>;
+}
+
+function App() {
   return (
     <>
       <Screen>
@@ -30,19 +38,19 @@ function App() {
           </Score>
         </Header>
         <Table>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Quadrado />
+          <Quadrado />
+          <Quadrado />
         </Table>
         <Table>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Quadrado />
+          <Quadrado />
+          <Quadrado />
         </Table>
         <Table>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
-          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Quadrado />
+          <Quadrado />
+          <Quadrado />
         </Table>
       </Screen>
     </>
