@@ -19,7 +19,11 @@ function Quadrado() {
     setValue("X");
   }
 
-  return <Square onClick={clickX}>{value}</Square>;
+  function clickO() {
+    setValue("O");
+  }
+
+  return <Square onClick={clickO}>{value}</Square>;
 }
 
 function App() {
