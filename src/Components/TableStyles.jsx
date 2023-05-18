@@ -21,7 +21,7 @@ export const Table = styled.div`
   align-items: center;
 `;
 
-export const Square = styled.button`
+export const Square = styled.div`
   display: flex;
 
   width: 150px;

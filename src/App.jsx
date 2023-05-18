@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Screen,
   Table,
@@ -13,6 +13,8 @@ import {
 } from "./Components/TableStyles";
 
 function App() {
+  const [value, setValue] = useState("");
+
   return (
     <>
       <Screen>
@@ -28,19 +30,19 @@ function App() {
           </Score>
         </Header>
         <Table>
-          <Square>X</Square>
-          <Square>O</Square>
-          <Square>X</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
         </Table>
         <Table>
-          <Square>O</Square>
-          <Square>X</Square>
-          <Square>O</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
         </Table>
         <Table>
-          <Square>X</Square>
-          <Square>O</Square>
-          <Square>X</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
+          <Square onClick={() => setValue("X")}>{value}</Square>
         </Table>
       </Screen>
     </>
