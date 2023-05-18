@@ -21,7 +21,7 @@ export const Table = styled.div`
   align-items: center;
 `;
 
-export const Square = styled.div`
+export const Square = styled.button`
   display: flex;
 
   width: 150px;
@@ -32,7 +32,15 @@ export const Square = styled.div`
   align-items: center;
   justify-content: center;
 
-  border: 1px solid black;
+  background-color: #6c6c6c;
+  border: 2px solid black;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+    background-color: #a0a0a0;
+  }
 `;
 
 export const Header = styled.div`
@@ -56,12 +64,12 @@ export const Players = styled.div`
 `;
 
 export const PlayerX = styled.p`
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 150px;
 `;
 
 export const PlayerO = styled.p`
-  font-size: 25px;
+  font-size: 20px;
   padding-right: 150px;
 `;
 
