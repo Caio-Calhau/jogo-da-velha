@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Screen,
   Table,
@@ -19,6 +19,8 @@ function Quadrado({ value, onSquareClick }) {
 function App() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [players, setPlayers] = useState({ X: 0, O: 0 });
+  const [status, setStatus] = useState("Vez do jogador: " + (xIsNext ? "X" : "O"));
 
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) return;
@@ -35,14 +37,20 @@ function App() {
     setXIsNext(!xIsNext);
   }
 
-  const winner = calculateWinner(squares);
-  let status;
+  useEffect(() => {
+    setStatus("Vez do jogador: " + (xIsNext ? "X" : "O"));
+  }, [xIsNext]);
 
-  if (winner) {
-    status = "Vencedor: " + winner;
-  } else {
-    status = "Próximo jogador: " + (xIsNext ? "X" : "O");
-  }
+  useEffect(() => {
+    const winner = calculateWinner(squares);
+
+    if (winner) {
+      setStatus("Vencedor: " + winner);
+      const lastPlayers = players;
+      lastPlayers[winner] = ++lastPlayers[winner];
+      setPlayers(lastPlayers);
+    }
+  }, [squares]);
 
   return (
     <>
@@ -54,8 +62,8 @@ function App() {
             <PlayerO>Jogador O</PlayerO>
           </Players>
           <Score>
-            <Counter>0</Counter>
-            <Counter>1</Counter>
+            <Counter>{players.X}</Counter>
+            <Counter>{players.O}</Counter>
           </Score>
         </Header>
         <Table>
