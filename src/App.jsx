@@ -3,18 +3,15 @@ import {
   Screen,
   Table,
   Square,
-  Header,
+  Body,
   Title,
-  PlayerX,
-  PlayerO,
   Players,
   Counter,
-  Score,
+  Player,
+  Sides,
+  Header,
+  ContentTable,
 } from "./Components/TableStyles";
-
-function Quadrado({ value, onSquareClick }) {
-  return <Square onClick={onSquareClick}>{value}</Square>;
-}
 
 function App() {
   const [xIsNext, setXIsNext] = useState(true);
@@ -56,31 +53,35 @@ function App() {
     <>
       <Screen>
         <Header>
-          <Title>{status}</Title>
-          <Players>
-            <PlayerX>Jogador X</PlayerX>
-            <PlayerO>Jogador O</PlayerO>
-          </Players>
-          <Score>
-            <Counter>{players.X}</Counter>
-            <Counter>{players.O}</Counter>
-          </Score>
+          <Title>Jogo da Velha</Title>
         </Header>
-        <Table>
-          <Quadrado value={squares[0]} onSquareClick={() => handleClick(0)} />
-          <Quadrado value={squares[1]} onSquareClick={() => handleClick(1)} />
-          <Quadrado value={squares[2]} onSquareClick={() => handleClick(2)} />
-        </Table>
-        <Table>
-          <Quadrado value={squares[3]} onSquareClick={() => handleClick(3)} />
-          <Quadrado value={squares[4]} onSquareClick={() => handleClick(4)} />
-          <Quadrado value={squares[5]} onSquareClick={() => handleClick(5)} />
-        </Table>
-        <Table>
-          <Quadrado value={squares[6]} onSquareClick={() => handleClick(6)} />
-          <Quadrado value={squares[7]} onSquareClick={() => handleClick(7)} />
-          <Quadrado value={squares[8]} onSquareClick={() => handleClick(8)} />
-        </Table>
+        <Body>
+          <Sides>
+            <Player isActive={xIsNext}>Jogador "X"</Player>
+            <Counter>{players.X}</Counter>
+          </Sides>
+          <ContentTable>
+            <Table>
+              <Square onClick={() => handleClick(0)}>{squares[0]}</Square>
+              <Square onClick={() => handleClick(1)}>{squares[1]}</Square>
+              <Square onClick={() => handleClick(2)}>{squares[2]}</Square>
+            </Table>
+            <Table>
+              <Square onClick={() => handleClick(3)}>{squares[3]}</Square>
+              <Square onClick={() => handleClick(4)}>{squares[4]}</Square>
+              <Square onClick={() => handleClick(5)}>{squares[5]}</Square>
+            </Table>
+            <Table>
+              <Square onClick={() => handleClick(6)}>{squares[6]}</Square>
+              <Square onClick={() => handleClick(7)}>{squares[7]}</Square>
+              <Square onClick={() => handleClick(8)}>{squares[8]}</Square>
+            </Table>
+          </ContentTable>
+          <Sides>
+            <Player isActive={!xIsNext}>Jogador "O"</Player>
+            <Counter>{players.O}</Counter>
+          </Sides>
+        </Body>
       </Screen>
     </>
   );
