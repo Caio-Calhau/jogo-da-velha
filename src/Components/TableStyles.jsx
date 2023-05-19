@@ -114,17 +114,3 @@ export const Counter = styled.p`
 
   padding: 0px 150px 0px 150px;
 `;
-
-export const PlayAgain = styled.div`
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 150px;
-  height: 50px;
-
-  border-radius: 10px;
-
-  background: yellow;
-`;

@@ -5,7 +5,6 @@ import {
   Square,
   Body,
   Title,
-  Players,
   Counter,
   Player,
   Sides,
