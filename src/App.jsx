@@ -10,6 +10,8 @@ import {
   Sides,
   Header,
   ContentTable,
+  Restart,
+  Center,
 } from "./Components/TableStyles";
 
 function App() {
@@ -17,9 +19,10 @@ function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [players, setPlayers] = useState({ X: 0, O: 0 });
   const [status, setStatus] = useState("Vez do jogador: " + (xIsNext ? "X" : "O"));
+  const [isGameOver, setIsGameOver] = useState(false);
 
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) return;
+    if (isGameOver || squares[i] || calculateWinner(squares)) return;
 
     const nextSquares = squares.slice();
 
@@ -33,6 +36,13 @@ function App() {
     setXIsNext(!xIsNext);
   }
 
+  function handleReset() {
+    setSquares(Array(9).fill(null));
+    setIsGameOver(false);
+    setXIsNext(true);
+    setStatus("Vez do jogador: X");
+  }
+
   useEffect(() => {
     setStatus("Vez do jogador: " + (xIsNext ? "X" : "O"));
   }, [xIsNext]);
@@ -41,10 +51,15 @@ function App() {
     const winner = calculateWinner(squares);
 
     if (winner) {
+      setIsGameOver(true);
       setStatus("Vencedor: " + winner);
-      const lastPlayers = players;
-      lastPlayers[winner] = ++lastPlayers[winner];
-      setPlayers(lastPlayers);
+      setPlayers((prevPlayers) => ({
+        ...prevPlayers,
+        [winner]: prevPlayers[winner] + 1,
+      }));
+    } else if (!squares.includes(null)) {
+      setIsGameOver(true);
+      setStatus("Empate");
     }
   }, [squares]);
 
@@ -59,23 +74,26 @@ function App() {
             <Player isActive={xIsNext}>Jogador "X"</Player>
             <Counter>{players.X}</Counter>
           </Sides>
-          <ContentTable>
-            <Table>
-              <Square onClick={() => handleClick(0)}>{squares[0]}</Square>
-              <Square onClick={() => handleClick(1)}>{squares[1]}</Square>
-              <Square onClick={() => handleClick(2)}>{squares[2]}</Square>
-            </Table>
-            <Table>
-              <Square onClick={() => handleClick(3)}>{squares[3]}</Square>
-              <Square onClick={() => handleClick(4)}>{squares[4]}</Square>
-              <Square onClick={() => handleClick(5)}>{squares[5]}</Square>
-            </Table>
-            <Table>
-              <Square onClick={() => handleClick(6)}>{squares[6]}</Square>
-              <Square onClick={() => handleClick(7)}>{squares[7]}</Square>
-              <Square onClick={() => handleClick(8)}>{squares[8]}</Square>
-            </Table>
-          </ContentTable>
+          <Center>
+            <ContentTable>
+              <Table>
+                <Square onClick={() => handleClick(0)}>{squares[0]}</Square>
+                <Square onClick={() => handleClick(1)}>{squares[1]}</Square>
+                <Square onClick={() => handleClick(2)}>{squares[2]}</Square>
+              </Table>
+              <Table>
+                <Square onClick={() => handleClick(3)}>{squares[3]}</Square>
+                <Square onClick={() => handleClick(4)}>{squares[4]}</Square>
+                <Square onClick={() => handleClick(5)}>{squares[5]}</Square>
+              </Table>
+              <Table>
+                <Square onClick={() => handleClick(6)}>{squares[6]}</Square>
+                <Square onClick={() => handleClick(7)}>{squares[7]}</Square>
+                <Square onClick={() => handleClick(8)}>{squares[8]}</Square>
+              </Table>
+            </ContentTable>
+            {isGameOver && <Restart onClick={handleReset}>Jogar de novo?</Restart>}
+          </Center>
           <Sides>
             <Player isActive={!xIsNext}>Jogador "O"</Player>
             <Counter>{players.O}</Counter>

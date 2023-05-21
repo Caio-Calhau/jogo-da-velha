@@ -114,3 +114,27 @@ export const Counter = styled.p`
 
   justify-content: center;
 `;
+
+export const Restart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+
+  background-color: black;
+  color: #6c6c6c;
+
+  border-radius: 8px;
+  padding: 10px;
+
+  margin-top: 30px;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+`;
