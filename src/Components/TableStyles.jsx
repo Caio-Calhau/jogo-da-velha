@@ -3,11 +3,12 @@ import { styled } from "styled-components";
 export const Screen = styled.div`
   display: flex;
   flex-direction: column;
+  position: fixed;
 
   align-items: center;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   background: #6c6c6c;
 
@@ -19,7 +20,7 @@ export const ContentTable = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 610px;
+  height: 400px;
   background-color: black;
 `;
 
@@ -29,15 +30,15 @@ export const Table = styled.div`
 
   justify-content: space-between;
   align-items: center;
-  width: 610px;
+  width: 400px;
   background-color: black;
 `;
 
 export const Square = styled.div`
   display: flex;
 
-  width: 200px;
-  height: 200px;
+  width: 130px;
+  height: 130px;
 
   font-size: 80px;
 
@@ -58,6 +59,7 @@ export const Header = styled.div`
   display: flex;
   height: 20%;
   width: 100%;
+  margin-bottom: 20px;
   justify-content: center;
   align-items: center;
 `;
@@ -91,7 +93,7 @@ export const Player = styled.p.attrs(({ isActive }) => ({
     color: isActive ? "#6c6c6c" : "rgba(0, 0, 0, 1)",
   },
 }))`
-  font-size: 42px;
+  font-size: 38px;
   padding: 20px;
   border-radius: 5px;
 `;
@@ -101,16 +103,14 @@ export const Score = styled.div`
 
   padding-top: 200px;
 
-  width: 100vw;
+  width: 100%;
 
   justify-content: space-between;
 `;
 
 export const Counter = styled.p`
   display: flex;
-  font-size: 150px;
+  font-size: 120px;
 
   justify-content: center;
-
-  padding: 0px 150px 0px 150px;
 `;
