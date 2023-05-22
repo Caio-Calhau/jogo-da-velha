@@ -131,6 +131,8 @@ export const Restart = styled.div`
   padding: 10px;
 
   margin-top: 30px;
+
+  cursor: pointer;
 `;
 
 export const Center = styled.div`
