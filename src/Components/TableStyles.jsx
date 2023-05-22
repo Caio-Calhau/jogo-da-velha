@@ -34,7 +34,11 @@ export const Table = styled.div`
   background-color: black;
 `;
 
-export const Square = styled.div`
+export const Square = styled.div.attrs(({ children }) => ({
+  style: {
+    color: children === "X" ? "#cacad0" : "black",
+  },
+}))`
   display: flex;
 
   width: 130px;
