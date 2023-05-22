@@ -52,7 +52,7 @@ function App() {
 
     if (winner) {
       setIsGameOver(true);
-      setStatus("Vencedor: " + winner);
+      setStatus("Vencedor: jogador " + winner);
       setPlayers((prevPlayers) => ({
         ...prevPlayers,
         [winner]: prevPlayers[winner] + 1,
@@ -68,6 +68,7 @@ function App() {
       <Screen>
         <Header>
           <Title>Jogo da Velha</Title>
+          {isGameOver && <Restart>{status}</Restart>}
         </Header>
         <Body>
           <Sides>

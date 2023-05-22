@@ -57,6 +57,7 @@ export const Square = styled.div`
 
 export const Header = styled.div`
   display: flex;
+  flex-direction: column;
   height: 20%;
   width: 100%;
   margin-bottom: 20px;
