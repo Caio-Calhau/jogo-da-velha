@@ -80,39 +80,25 @@ function App() {
           </Sides>
           <Center>
             <ContentTable>
-              <Table>
-                <Square onClick={() => handleClick(0)} isWinner={winningSquares.includes(0)}>
-                  {squares[0]}
-                </Square>
-                <Square onClick={() => handleClick(1)} isWinner={winningSquares.includes(1)}>
-                  {squares[1]}
-                </Square>
-                <Square onClick={() => handleClick(2)} isWinner={winningSquares.includes(2)}>
-                  {squares[2]}
-                </Square>
-              </Table>
-              <Table>
-                <Square onClick={() => handleClick(3)} isWinner={winningSquares.includes(3)}>
-                  {squares[3]}
-                </Square>
-                <Square onClick={() => handleClick(4)} isWinner={winningSquares.includes(4)}>
-                  {squares[4]}
-                </Square>
-                <Square onClick={() => handleClick(5)} isWinner={winningSquares.includes(5)}>
-                  {squares[5]}
-                </Square>
-              </Table>
-              <Table>
-                <Square onClick={() => handleClick(6)} isWinner={winningSquares.includes(6)}>
-                  {squares[6]}
-                </Square>
-                <Square onClick={() => handleClick(7)} isWinner={winningSquares.includes(7)}>
-                  {squares[7]}
-                </Square>
-                <Square onClick={() => handleClick(8)} isWinner={winningSquares.includes(8)}>
-                  {squares[8]}
-                </Square>
-              </Table>
+              {Array(3)
+                .fill(null)
+                .map((_, row) => (
+                  <Table key={row}>
+                    {Array(3)
+                      .fill(null)
+                      .map((_, col) => {
+                        const index = row * 3 + col;
+                        return (
+                          <Square
+                            key={index}
+                            onClick={() => handleClick(index)}
+                            isWinner={winningSquares.includes(index)}>
+                            {squares[index]}
+                          </Square>
+                        );
+                      })}
+                  </Table>
+                ))}
             </ContentTable>
             {isGameOver && <Restart onClick={handleReset}>Jogar de novo?</Restart>}
           </Center>
