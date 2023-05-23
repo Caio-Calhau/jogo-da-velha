@@ -53,6 +53,12 @@ export const Square = styled.div.attrs(({ children }) => ({
 
   cursor: pointer;
 
+  ${({ isWinner }) =>
+    isWinner &&
+    `
+      background-color: #4d004d;
+    `}
+
   &:hover {
     opacity: 0.8;
     background-color: #a0a0a0;
